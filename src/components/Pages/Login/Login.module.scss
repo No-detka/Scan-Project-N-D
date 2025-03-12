@@ -1,0 +1,60 @@
+@import '@/assets/styles/variables';
+@import '@/assets/styles/mixins';
+
+.login {
+  display: grid;
+  grid-template-areas:
+    'heading form'
+    'img form';
+  gap: 14px 50px;
+  padding: 69px 0 80px;
+
+  @include tablet {
+    grid-template-areas:
+      'heading'
+      'form'
+      'img';
+    justify-items: center;
+    row-gap: 45px;
+  }
+
+  @include mobile {
+    padding-top: 31px;
+  }
+
+  > .heading {
+    grid-area: heading;
+    @include pageHeading;
+
+    @include tablet {
+      max-width: 750px;
+      margin-bottom: 81px;
+    }
+
+    @include mobile {
+      max-width: 429px;
+      font-size: 22px;
+      line-height: 26px;
+    }
+
+    @include mobileMedium {
+      max-width: 335px;
+    }
+  }
+
+  > .img {
+    grid-area: img;
+    max-width: 335px;
+    margin-left: 112px;
+
+    @include tablet {
+      margin-left: 0;
+      max-width: 550px;
+    }
+
+    @include mobile {
+      margin-left: 0;
+      max-width: 335px;
+    }
+  }
+}

@@ -1,0 +1,51 @@
+@import '@/assets/styles/variables';
+@import '@/assets/styles/mixins';
+
+.footer {
+  background-color: $turquoise;
+
+  > div {
+    @include containerSettings;
+    max-height: 137px;
+    padding: 25px 25px 25px 14px;
+
+    @include mobile {
+      align-items: flex-start;
+    }
+
+    > .footerLogo {
+      > img {
+        width: 141px;
+
+        @include mobile {
+          margin-top: -33px;
+          width: 111px;
+        }
+      }
+    }
+
+    > .infoWrapper {
+      text-align: end;
+
+      > .text {
+        font-size: 14px;
+        line-height: 17px;
+        color: $white;
+
+        > .link {
+          @include link;
+          color: inherit;
+          transition: all 0.4s ease-in-out;
+
+          &:hover {
+            color: $turquoise-hover;
+          }
+        }
+
+        &:last-child {
+          margin-top: 21px;
+        }
+      }
+    }
+  }
+}

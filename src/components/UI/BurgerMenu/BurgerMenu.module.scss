@@ -1,0 +1,61 @@
+@import '@/assets/styles/variables';
+@import '@/assets/styles/mixins';
+
+.burgerLogo {
+  position: absolute;
+  top: 0;
+  left: 15px;
+  width: 111px;
+  height: 111px;
+}
+
+.burgerList {
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  margin: 100px 0 75px;
+
+  > .burgerItem {
+    > .burgerLink {
+      font-size: 16px;
+      line-height: 19px;
+      color: $white;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.burgerBtnWrapper {
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  
+
+  > .burgerLogout {
+    margin-bottom: 10px;
+    @include authLink;
+  }
+
+  > .burgerRegister {
+    font-size: 16px;
+    line-height: 19px;
+    color: $white;
+    opacity: 0.4;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  > .burgerLogin {
+    margin-bottom: 10px;
+    @include authLink;
+  }
+}

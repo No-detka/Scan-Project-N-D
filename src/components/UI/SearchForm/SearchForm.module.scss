@@ -1,0 +1,208 @@
+@import '@/assets/styles/variables';
+@import '@/assets/styles/mixins';
+
+.form {
+  display: flex;
+  justify-content: space-between;
+  width: 872px;
+  max-height: 543px;
+  padding: 21px 39px 32px 44px;
+  border-radius: 10px;
+  box-shadow: $box-shadow;
+
+  @include tablet {
+    width: 100%;
+    max-width: 872px;
+  }
+
+  @include tabletSmall {
+    flex-direction: column;
+    max-height: 688px;
+  }
+
+  @include mobile {
+    padding: 32px 26px 37px 14px;
+  }
+
+  > .inputContainer {
+    display: flex;
+    flex-direction: column;
+
+    > .inputWrapper {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 11px;
+
+      &.inputWrapper:nth-child(2) {
+        margin-bottom: 21px;
+      }
+
+      &.inputWrapper:nth-child(4) {
+        @include tabletSmall {
+          margin-bottom: 21px;
+        }
+      }
+
+      > .label {
+        padding-bottom: 20px;
+
+        > .errorMarker {
+          color: $red;
+        }
+      }
+
+      > .input {
+        max-width: 242px;
+        @include searchInput;
+
+        @include tabletSmall {
+          max-width: 100%;
+        }
+
+        &.select {
+          @include searchSelect;
+        }
+
+        &.errorInput {
+          @include errorFields;
+        }
+      }
+
+      > .datePickerWrapper {
+        display: flex;
+
+        @include tabletSmall {
+          flex-direction: column;
+        }
+
+        .datePicker {
+          max-width: 176px;
+          @include searchSelect;
+          @include searchInput;
+
+          @include tabletSmall {
+            width: 100%;
+            max-width: 100%;
+          }
+
+          &.errorDatePicker {
+            @include errorFields;
+          }
+        }
+      }
+
+      > .errorMsg {
+        margin-top: 2px;
+        padding-left: 20px;
+        @include errorMsg;
+
+        @include tabletSmall {
+          padding-left: 0;
+          text-align: center;
+        }
+      }
+
+      &:last-child {
+        > .errorMsg {
+          padding-left: 0;
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  > .checkboxContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    > .checkboxList {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+
+      @include tabletSmall {
+        display: none;
+      }
+
+      > .checkboxItem {
+        display: flex;
+        align-items: flex-start;
+
+        &:has(.checkbox:not(:checked)) {
+          opacity: 0.4;
+        }
+
+        > .checkbox {
+          position: relative;
+          min-width: 20px;
+          min-height: 20px;
+          margin-right: 17px;
+          appearance: none;
+          border: 1px solid $black;
+          cursor: pointer;
+
+          &::before {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            background-image: url('/markerIcon.svg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            width: 14px;
+            height: 14px;
+            transform: scale(0);
+            transition: 120ms transform ease-in-out;
+          }
+
+          &:checked::before {
+            transform: scale(1);
+          }
+        }
+
+        > .label {
+          cursor: pointer;
+        }
+      }
+    }
+
+    > .btnWrapper {
+      display: flex;
+      flex-direction: column;
+      align-self: flex-end;
+      gap: 10px;
+      width: 305px;
+
+      @include tabletSmall {
+        align-self: center;
+      }
+
+      @include mobileSmall {
+        width: 100%;
+      }
+
+      > .submitBtn {
+        font-size: 22px;
+        font-weight: 500;
+        line-height: 27px;
+        @include actionBtn;
+
+        &:disabled {
+          opacity: 0.5;
+          pointer-events: none;
+        }
+
+        @include mobile {
+          font-size: 20px;
+          line-height: 24px;
+        }
+      }
+
+      > .requiredFields {
+        @include errorMsg;
+        color: #949494;
+      }
+    }
+  }
+}

@@ -1,0 +1,118 @@
+@import './reset';
+@import './variables';
+@import './mixins';
+
+*,
+*::before,
+*:after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  font: 400 normal 18px/22px $body-font;
+  background-color: $white;
+  color: $black;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $heading-font;
+}
+
+.container {
+  max-width: 1320px;
+  margin: 0 auto;
+
+  @include notebook {
+    padding: 0 26px 0 14px;
+  }
+}
+
+
+.bm-burger-button {
+  position: absolute;
+  width: 30px;
+  height: 25px;
+  right: 26px;
+  top: 34px;
+}
+
+
+.bm-burger-bars {
+  position: relative;
+  background: $turquoise;
+}
+
+
+.bm-burger-bars-hover {
+  transition: all 0.4s ease-in-out;
+  background: $turquoise-hover;
+  opacity: 1 !important;
+}
+
+
+.bm-cross-button {
+  background-image: url('/burgerClose.svg');
+  right: 26px !important;
+  top: 42px !important;
+}
+
+
+.bm-cross {
+  background: transparent;
+}
+
+
+.bm-menu-wrap {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+
+.bm-menu {
+  background: $turquoise;
+  padding: 0;
+  width: 100%;
+}
+
+
+.bm-morph-shape {
+  fill: #373a47;
+}
+
+
+.bm-item-list {
+  color: #b8b7ad;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.bm-overlay {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+
+.react-datepicker-wrapper:first-child {
+  margin-right: 20px;
+
+  @include tabletSmall {
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+}
+
+.react-datepicker__current-month {
+  font-family: $body-font;
+  text-transform: capitalize;
+}

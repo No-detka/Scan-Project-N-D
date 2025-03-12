@@ -1,0 +1,175 @@
+@import '@/assets/styles/variables';
+@import '@/assets/styles/mixins';
+
+.formWrapper {
+  grid-area: form;
+  position: relative;
+  width: 429px;
+  height: 523px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 25px 25px 39px;
+  border-radius: 10px;
+  box-shadow: $box-shadow;
+
+  @include mobile {
+    padding: 25px 15px 20px;
+  }
+
+  @include mobileMedium {
+    width: 335px;
+  }
+
+  > .formIcon {
+    position: absolute;
+    top: -55px;
+    left: -51px;
+    width: 75px;
+    height: 92px;
+
+    @include tablet {
+      top: -75px;
+      left: 30%;
+    }
+  }
+
+  > .btnWrapper {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+
+    > .authBtn {
+      min-width: 151px;
+      font-size: 16px;
+      line-height: 19px;
+      color: $turquoise;
+      padding-bottom: 8px;
+      border-bottom: 2px solid $turquoise;
+      background: transparent;
+      cursor: pointer;
+
+      @include mobile {
+        min-width: 103px;
+        font-size: 14px;
+        line-height: 17px;
+      }
+
+      &:last-of-type {
+        min-width: 213px;
+
+        @include mobile {
+          min-width: 182px;
+        }
+      }
+
+      &.btnInactive {
+        color: $accent-gray;
+        border-color: $accent-gray;
+      }
+    }
+  }
+
+  > .loginForm {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding-top: 40px;
+
+    > .label {
+      margin-bottom: 15px;
+      @include smallText;
+    }
+
+    > .input {
+      padding: 12px 19px;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 19px;
+      border: 1px solid $accent-gray;
+      border-radius: 5px;
+      box-shadow: $input-box-shadow;
+
+      &:focus {
+        @include focusInput;
+      }
+
+      &.errorInput {
+        @include errorFields;
+      }
+    }
+
+    > .errorMsg {
+      margin-top: 3px;
+      text-align: center;
+      @include errorMsg;
+    }
+
+    > .submitBtn {
+      margin-top: 10px;
+      font-size: 22px;
+      font-weight: 500;
+      line-height: 27px;
+      @include actionBtn;
+
+      &:disabled {
+        opacity: 0.5;
+        pointer-events: none;
+      }
+
+      @include mobile {
+        font-size: 20px;
+        line-height: 24px;
+      }
+    }
+  }
+
+  > .recoveryLink {
+    margin: 5px 0 30px;
+    font-size: 14px;
+    line-height: 17px;
+    color: $accent-blue;
+    cursor: pointer;
+  }
+
+  > .socialNetwork {
+    align-self: flex-start;
+
+    > .socialText {
+      margin-bottom: 15px;
+      @include smallText;
+    }
+
+    > .socialBtnWrapper {
+      display: flex;
+      gap: 10px;
+
+      > .socialBtn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 96px;
+        height: 31px;
+        border: 1px solid #5970ff82;
+        border-radius: 3px;
+        cursor: pointer;
+        background: transparent;
+
+        > img {
+          width: 59px;
+        }
+      }
+    }
+  }
+
+  > .registerForm {
+    padding-top: 40px;
+    font-size: 16px;
+    line-height: 19px;
+
+    @include mobile {
+      font-size: 14px;
+      line-height: 17px;
+    }
+  }
+}

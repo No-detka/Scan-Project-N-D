@@ -1,0 +1,201 @@
+@mixin notebook {
+  @media all and (max-width: 1340px) {
+    @content;
+  }
+}
+
+@mixin netbook {
+  @media all and (max-width: 1270px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media all and (max-width: 1063px) {
+    @content;
+  }
+}
+
+@mixin tabletSmall {
+  @media all and (max-width: 820px) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media all and (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin mobileMedium {
+  @media all and (max-width: 525px) {
+    @content;
+  }
+}
+
+@mixin mobileSmall {
+  @media all and (max-width: 420px) {
+    @content;
+  }
+}
+
+@mixin containerSettings {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@mixin mainHeading {
+  font-size: 45px;
+  font-weight: 900;
+  line-height: 54px;
+
+  @include mobile {
+    font-size: 28px;
+    line-height: 34px;
+  }
+}
+
+@mixin pageHeading {
+  font-size: 40px;
+  font-weight: 900;
+  line-height: 48px;
+
+  @include mobile {
+    font-size: 28px;
+    line-height: 34px;
+  }
+}
+
+@mixin resultPageHeading {
+  font-size: 30px;
+  font-weight: 900;
+  line-height: 36px;
+
+  @include mobile {
+    font-size: 28px;
+    line-height: 34px;
+  }
+}
+
+@mixin smallText {
+  font-size: 16px;
+  line-height: 19px;
+  color: #949494;
+
+  @include mobile {
+    font-size: 14px;
+    line-height: 17px;
+  }
+}
+
+@mixin link {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+%settingsLink {
+  @include link;
+  padding: 15px 0;
+  color: $black;
+  text-align: center;
+  background-color: $accent-turquoise;
+  border-radius: 5px;
+  transition: all 0.4s ease-in-out;
+
+  &:hover {
+    background-color: $accent-turquoise-hover;
+  }
+}
+
+@mixin authLink {
+  width: 295px;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 24px;
+  @extend %settingsLink;
+}
+
+@mixin sourceLink {
+  width: 223px;
+  font-size: 16px;
+  line-height: 19px;
+  @extend %settingsLink;
+}
+
+@mixin button {
+  background: transparent;
+  cursor: pointer;
+}
+
+@mixin actionBtn {
+  @include button;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 15px 0;
+  color: $white;
+  background-color: $accent-blue;
+  border-radius: 5px;
+  transition: all 0.4s ease-in-out;
+
+  &:hover {
+    background-color: $accent-blue-hover;
+  }
+}
+
+@mixin focusInput {
+  border-color: $turquoise;
+  box-shadow: $focus-box-shadow;
+}
+
+@mixin searchInput {
+  padding: 13px 22px;
+  font-size: 14px;
+  line-height: 17px;
+  border: 1px solid $accent-gray;
+  border-radius: 5px;
+  box-shadow: $input-box-shadow;
+
+  &::placeholder {
+    text-align: center;
+    color: #949494;
+    opacity: 0.4;
+  }
+
+  &:focus {
+    @include focusInput;
+  }
+}
+
+@mixin searchSelect {
+  appearance: none;
+  background-image: url('/selectArrowIcon.svg');
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  cursor: pointer;
+}
+
+@mixin errorMsg {
+  min-height: 17px;
+  font-size: 14px;
+  line-height: 17px;
+  color: $red;
+}
+
+@mixin errorFields {
+  color: $red;
+  border-color: $red;
+  box-shadow: $error-box-shadow;
+}
+
+@mixin textClamp($lines: 1) {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $lines;
+  line-clamp: $lines;
+  text-overflow: ellipsis;
+  white-space: normal;
+}

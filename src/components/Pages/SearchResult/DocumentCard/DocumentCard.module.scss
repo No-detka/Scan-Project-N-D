@@ -1,0 +1,138 @@
+@import '@/assets/styles/variables';
+@import '@/assets/styles/mixins';
+
+.documentCard {
+  display: flex;
+  flex-direction: column;
+  max-width: 641px;
+  padding: 19px 30px 35px;
+  border-radius: 10px;
+  box-shadow: $box-shadow;
+
+  @include mobile {
+    max-width: 480px;
+  }
+
+  @include mobileMedium {
+    max-width: 380px;
+    padding: 19px 14px 18px 24px;
+  }
+
+  @include mobileSmall {
+    max-width: 335px;
+  }
+
+  > .infoContainer {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 24px;
+
+    > .date,
+    .link {
+      @include smallText;
+    }
+
+    > .link {
+      @include textClamp;
+    }
+  }
+
+  > .title {
+    font-family: $body-font;
+    font-size: 26px;
+    font-weight: 500;
+    line-height: 31px;
+    @include textClamp(2);
+
+    @include mobile {
+      font-size: 19px;
+      line-height: 23px;
+    }
+  }
+
+  > .typesContainer {
+    display: flex;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 15px;
+
+    > .type {
+      padding: 4px 14px;
+      font-size: 12px;
+      line-height: 15px;
+      border-radius: 5px;
+
+      @include mobile {
+        padding: 4px 12px;
+        font-size: 10px;
+        line-height: 12px;
+      }
+
+      &:first-child {
+        margin-top: 14px;
+
+        @include mobile {
+          margin-top: 20px;
+        }
+      }
+
+      &.turquoise {
+        background-color: $accent-turquoise;
+      }
+
+      &.green {
+        background-color: $green;
+      }
+
+      &.yellow {
+        background-color: $accent-yellow;
+      }
+    }
+  }
+
+  > .img {
+    margin: 14px 0 20px;
+    border-radius: 10px;
+    object-fit: cover;
+    height: 158px;
+  }
+
+  > .text {
+    margin-bottom: 32px;
+    font-size: 16px;
+    line-height: 19px;
+    color: #949494;
+    @include textClamp(11);
+
+    @include mobile {
+      font-size: 12px;
+      line-height: 15px;
+    }
+  }
+
+  > .additionalInfoContainer {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-top: auto;
+
+    @include mobile {
+      margin-top: 25px;
+    }
+
+    > .sourceLink {
+      @include sourceLink;
+
+      @include mobile {
+        width: 195px;
+        font-size: 14px;
+        line-height: 17px;
+      }
+    }
+
+    > .wordCount {
+      @include smallText;
+    }
+  }
+}

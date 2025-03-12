@@ -1,0 +1,92 @@
+@import '@/assets/styles/variables';
+@import '@/assets/styles/mixins';
+
+.advantSlider {
+  margin-bottom: 50px;
+
+  @include mobile {
+    margin-bottom: 60px;
+  }
+
+  >.heading {
+    margin-bottom: 50px;
+    @include mainHeading;
+
+    @include mobile {
+      margin-bottom: 12px;
+    }
+  }
+
+  >.swiperWrapper {
+    position: relative;
+
+    >.swiper {
+      display: flex;
+      max-width: 1300px;
+      padding: 20px;
+
+      @include notebook {
+        max-width: calc(1280px + (100vw - 1360px));
+      }
+
+      .advantDiv {
+        height: 225px;
+        box-shadow: $box-shadow;
+        border-radius: 10px;
+        padding: 10px; 
+      }
+
+      .adventCard {
+        display: flex;
+        flex-direction: column;
+        max-width: 400px;
+
+
+
+        @include notebook {
+          max-width: 100%;
+        }
+
+        @include mobileMedium {
+          height: auto;
+          padding: 20px 5px 20px 15px;
+        }
+      }
+
+      >.advantImg {
+        width: 60px;
+        height: auto;
+        margin-bottom: 27px;
+      }
+
+      .advantText {
+        padding-top: 10px;
+      }
+    }
+
+    >.navBtn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 39px;
+      height: 39px;
+      background: none;
+      border: none;
+      opacity: 0.2;
+      cursor: pointer;
+      z-index: 1;
+      background-repeat: no-repeat;
+      background-size: contain;
+
+      &.btnPrev {
+        background-image: url('/arrowLeft.svg');
+        left: -20px;
+      }
+
+      &.btnNext {
+        background-image: url('/arrowRight.svg');
+        right: -9px;
+      }
+    }
+  }
+}
